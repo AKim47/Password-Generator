@@ -20,6 +20,7 @@ while (charLength > 128 || charLength < 8) {
   var charLength = window.prompt("Please choose a valid number between 8 and 128");
 };
 
+
 }
 
 // Add event listener to generate button
