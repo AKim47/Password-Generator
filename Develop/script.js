@@ -18,22 +18,31 @@ function generatePassword() {
 
 // desired character length
 var charLength = window.prompt("Choose a paswword length between 8-128 characters");
-while (charLength > 128 || charLength < 8) {
+// confirm value is a number and is in the range
+while (charLength > 128 || charLength < 8 || !Number.isInteger(charLength)) {
   var charLength = window.prompt("Please choose a valid number between 8 and 128");
 };
 
-// lowercase Y/N
-var lowerCase = window.confirm("Press OK to include lowercase in your password or Press CANCEL to not include lowercase in your password.");
+// make sure at least one of the fields are selected
+while (!lowerCase && !upperCase && !numeric && !special) {
 
-// uppercase Y/N
-var upperCase = window.confirm("Press OK to include uppercase in your password or Press CANCEL to not include uppercase in your password.");
+  alert("Please choose at least one of the four following fields");
+  // lowercase Y/N
+  var lowerCase = window.confirm("Press OK to include lowercase in your password or Press CANCEL to not include lowercase in your password.");
 
-// numeric Y/N
-var numeric = window.confirm("Press OK to include numbers in your password or Press CANCEL to not include numbers in your password.");
+  // uppercase Y/N
+  var upperCase = window.confirm("Press OK to include uppercase in your password or Press CANCEL to not include uppercase in your password.");
 
-// special character Y/N
-var special = window.confirm("Press OK to include uppercase in your password or Press CANCEL to not include uppercase in your password.");
+  // numeric Y/N
+  var numeric = window.confirm("Press OK to include numbers in your password or Press CANCEL to not include numbers in your password.");
+
+  // special character Y/N
+  var special = window.confirm("Press OK to include uppercase in your password or Press CANCEL to not include uppercase in your password.");
+};
+
 }
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
