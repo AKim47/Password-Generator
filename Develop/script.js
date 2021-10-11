@@ -49,38 +49,37 @@ var checkLength = charLength;
 var password = "";
 var mergedList = [];
 
-console.log(numeric);
-
 // ensure selected character type is in password and put all of the character types into a merged list
 if (lowerCase) {
   checkLength --;
   password = password + shuffle(lowerCaseList);
   mergedList = [...mergedList, ...lowerCaseList];
-  console.log(mergedList);
 }
 
 if (upperCase) {
   checkLength --;
   password = password + shuffle(upperCaseList);
   mergedList = [...mergedList, ...upperCaseList];
-  console.log(mergedList);
 }
 
 if (numeric) {
   checkLength --;
   password = password + shuffle(numberList);
   mergedList = [...mergedList, ...numberList];
-  console.log(mergedList);
 }
 
 if (special) {
   checkLength --;
   password = password + shuffle(specialList);
   mergedList = [...mergedList, ...specialList];
-  console.log(mergedList);
 }
 
+// add in rest of the characters into password
+for (var k = checkLength; k > 0; k--) {
+  password = password + shuffle(mergedList);
+}
 
+return password;
 }
 
 
